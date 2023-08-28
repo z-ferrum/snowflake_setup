@@ -1,0 +1,5 @@
+/*
+
+Describes configs of DBs and warehouse computing resources allocation
+
+*/
