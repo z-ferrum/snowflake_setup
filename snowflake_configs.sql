@@ -5,35 +5,33 @@ Describes configs of DBs and warehouse computing resources allocation
 */
 
 
--- DB for dbt jobs, airflow jobs, bi requests, and analysts
-CREATE DATABASE ANALYTICS;
+-- db for dbt jobs, airflow jobs, bi requests, and analysts
+create database analytics;
 
--- Stage for airflow to send files into
-USE DATABASE RAW;
-CREATE STAGE RAW_PROD;
+-- stage for airflow to send files into
+use database raw;
+create stage raw_prod;
 
--- Warehouses
+-- warehouses
 
 -- for airflow jobs (keep smaller for cost efficiency, scale when needed)
-CREATE WAREHOUSE AIRFLOW_WH
-WITH WAREHOUSE_SIZE = 'XSMALL' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
+create warehouse airflow_wh
+with warehouse_size = 'xsmall' auto_suspend = 600 auto_resume = true;
 
--- for DBT automated jobs (keep smaller for cost efficiency, scale when needed)
-CREATE WAREHOUSE DBT_WH
-WITH WAREHOUSE_SIZE = 'XSMALL' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
+-- for dbt automated jobs (keep smaller for cost efficiency, scale when needed)
+create warehouse dbt_wh
+with warehouse_size = 'xsmall' auto_suspend = 600 auto_resume = true;
 
 -- for analysts (keep smaller for cost efficiency, scale when needed)
-CREATE WAREHOUSE ANALYST_WH 
-WITH WAREHOUSE_SIZE = 'XSMALL' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
+create warehouse analyst_wh 
+with warehouse_size = 'xsmall' auto_suspend = 600 auto_resume = true;
 
--- for BI tools (Should be bigger to faster respond to BI querries, but keep smaller for cost efficiency, scale when needed)
-CREATE WAREHOUSE BI_WH
-WITH WAREHOUSE_SIZE = 'LARGE' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
+-- for bi tools (should be bigger to faster respond to bi querries, but keep smaller for cost efficiency, scale when needed)
+create warehouse bi_wh
+with warehouse_size = 'large' auto_suspend = 600 auto_resume = true;
 
-
-
--- Check
-SHOW WAREHOUSES;
-SHOW DATABASES;
-USE DATABASE ANALYTICS;
-SHOW SCHEMAS;
+-- check
+show warehouses;
+show databases;
+use database analytics;
+show schemas;
