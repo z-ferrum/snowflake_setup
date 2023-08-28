@@ -20,13 +20,13 @@ grant usage, read, write on stage analytics.raw.raw_prod to role airflow_role;
 grant select, insert, update, delete on all tables in schema analytics.raw to role airflow_role;
 grant select, insert, update, delete on future tables in schema analytics.raw to role airflow_role;
 
--- Create a new user for Airflow and give him the role
-create user airflow_user
+-- Create a new user for Airflow and give it the role
+create user airflow_bot
 email = 'xxx@gmail.com'
 password = 'xxx'
 default_role = airflow_role -- ex. the role above
 default_warehouse = airflow_wh
-must_change_password = true;
+must_change_password = false;
 
 -- grant the airflow_role to a specific user or another role
-grant role airflow_role to user airflow_user;
+grant role airflow_role to user airflow_bot;

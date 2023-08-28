@@ -32,12 +32,12 @@ grant usage on warehouse dbt_wh to dbt_role
 -- Grant this role to yourself
 grant role dbt_role to user <user_name>
 
--- Create a new user for DBT and give him the role
-create user dbt_user
+-- Create a new user for DBT and give it the role
+create user dbt_bot
 email = 'xxx@gmail.com'
 password = 'xxx'
 default_role = dbt_role -- ex. the role above
 default_warehouse = dbt_wh
-must_change_password = true;
+must_change_password = false;
 
-grant role dbt_role to user dbt_user
+grant role dbt_role to user dbt_bot

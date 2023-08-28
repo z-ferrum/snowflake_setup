@@ -9,8 +9,9 @@ Describes configs of DBs and warehouse computing resources allocation
 create database analytics;
 
 -- stage for airflow to send files into
-use database raw;
+use database analytics;
 create stage raw_prod;
+create schema marts;  -- for setting bi tools access
 
 -- warehouses
 
