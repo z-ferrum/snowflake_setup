@@ -5,15 +5,12 @@ Describes configs of DBs and warehouse computing resources allocation
 */
 
 
--- DB for dbt jobs and analysts
+-- DB for dbt jobs, airflow jobs, bi requests, and analysts
 CREATE DATABASE ANALYTICS;
-
--- Raw data and files database for incoming data from Airflow
-CREATE DATABASE RAW;
 
 -- Stage for airflow to send files into
 USE DATABASE RAW;
-CREATE SCHEMA STAGE;
+CREATE STAGE RAW_PROD;
 
 -- Warehouses
 
@@ -38,5 +35,5 @@ WITH WAREHOUSE_SIZE = 'LARGE' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
 -- Check
 SHOW WAREHOUSES;
 SHOW DATABASES;
-USE DATABASE RAW;
+USE DATABASE ANALYTICS;
 SHOW SCHEMAS;
