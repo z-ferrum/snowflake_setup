@@ -1,3 +1,10 @@
+/*
+
+Describes setting up BI role for airflow a bi system (tableau, Power BI) and for BI users
+
+*/
+
+
 -- create the bi role
 create role bi_role;
 
